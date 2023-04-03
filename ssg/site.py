@@ -1,12 +1,11 @@
 from pathlib import Path
-from parsers import ResourceParser
 
 
 class Site:
-    def __init__(self, source, dest, parsers):
+    def __init__(self, source, dest, parsers = None):
         self.source = Path(source)
         self.dest = Path(dest)
-        self.parsers: ResourceParser() = parsers
+        self.parsers = parsers
 
     def create_dir(self, path):
         directory = self.dest / path.relative_to(self.source)
